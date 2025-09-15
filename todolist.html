@@ -12,7 +12,7 @@
     />
     <button onclick="addTask()">Add</button>
     
-</script>
+<script>
 
      function addTask(){
         const taskText = getTaskText();
@@ -29,14 +29,23 @@
 
         console.log("getTaskText"() called: - + input.value);
         return{text,input},
-     }
+     } async (params) => {
       
+       
+     }
      function addTaskItem(taskText){
         constli = document.createElement(li");
-        1i.textContent = taskText;
+        li.textContent = taskText;
 
         document.getElementById("tasklist").appenChild(li");
         console.log("addTaskText() called ->: ", taskText, Date())
+
+        const deleteBtn = createEdutbutton(li);
+        li.appendchild(deleteBtn);
+
+        conts editBtn = createEditButton(li);
+        li.appendChild(editBtn);
+
      }
 
      function createDeleteButton(li){
@@ -54,6 +63,26 @@
      function handleDeleteClick(li){
         li.remove();
         console.log("handleDeleteClick() called ->, li.textContent.replace("x","").trim(),date());
+     }
+
+     function createEditButton(){
+      const editBtn = document.createElement("button");
+      editBtn.textcontent = "edit";
+      editBtn.classname = "edit-btn";
+      editBtn.style.marginLeft = "8px";
+      editBtn.onclick = () =.handleEditclick(li,taskSpan);
+
+      console.log("createEditButton() called =>", taskSpan.textContent);
+      return editbtn;
+
+     }
+
+     function handleEditClick(li){
+         const currentText = li.firstChild.textContent.trim();
+         console.log("handleEditClick() -> current:", currentText, date());
+     } else {
+         console.log("handleEditClick() -> no changes made");
+
      }
         
 </script>
