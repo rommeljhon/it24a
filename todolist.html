@@ -27,9 +27,9 @@
         const input = document.getElementById("taskInput");
         const text = input.value.trim();
 
-        console.log("getTaskText"() called: - + input.value);
+        console.log("getTaskText() called: ->", input.value);
         return{text,input},
-     } async (params) => {
+      async (params) => 
       
        
      }
@@ -84,6 +84,24 @@
          console.log("handleEditClick() -> no changes made");
 
      }
+
+     function createDoneButton(taskSpan){
+         const doneBtn = document.createElement("button");
+         done.textContent = "Done";
+         doneBtn.oneClick = () =>{
+            const li= taskSpan.parentElement;
+
+            taskspan.classList.add("done");
+
+            const buttons = li.queryselectorall("button")
+            buttons.forEach(btn=>btn.remove());
+
+            console.log("Task completed", taskspan.textContent, Date());
+         }
+         return doneBtn;
+
+     }
+
         
 </script>
 
